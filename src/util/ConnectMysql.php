@@ -32,7 +32,7 @@ class ConnectMysql{
          die($e);
       }
    }
-   public function update($table,$value , $where) {
+   public function update($table, $value , $where) {
       $sql = "UPDATE ". $table . " SET " . $value . " WHERE ". $fields;
       try {
          $this->connect_mysql()->query($sql);
@@ -41,6 +41,13 @@ class ConnectMysql{
          die($e);
       }
    }
-
+   public function get($table){
+      $sql = "SELECT * FROM ". $table;
+      try {
+        return $this->connect_mysql()->query($sql);
+      } catch (Exception $e) {
+         die($e);
+      }
+   }
 }
 ?>

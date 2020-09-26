@@ -13,6 +13,6 @@ include('./src/util/ConnectMysql.php');
     <link rel="" href="" title="" type="">
   </head>
   <body>
-      <h1>test</h1>
+      <h1>Home</h1>
   </body>
 </html>
