@@ -2,10 +2,9 @@
 
 require('../lib/Authentication.php');
 class IndexAdmin{
-  function __construct() {
-  } 
-
   public function main(){
+    $authentication = new Authentication();
+
     include('../pages/admin/index.php');
   }
 }
