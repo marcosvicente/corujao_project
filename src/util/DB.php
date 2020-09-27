@@ -1,6 +1,6 @@
 <?php
 
-class ConnectMysql{
+class DB{
    private function connect_mysql() {
       $servername = "localhost";
       $username = "root";

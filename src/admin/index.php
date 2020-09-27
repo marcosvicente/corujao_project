@@ -1,15 +1,13 @@
 <?php 
 
-require('login.php');
-
+require('../lib/Authentication.php');
 class IndexAdmin{
   function __construct() {
   } 
 
   public function main(){
-    $login = new Login();
-    $login->has_login(); 
-  
+    $authentication = new Authentication();
+    $authentication->has_login();
     include('../pages/admin/index.php');
   }
 }
