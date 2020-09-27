@@ -1,7 +1,7 @@
 <?php
 
 class DB{
-   private function connect_mysql() {
+   public function connect_mysql() {
       $servername = "localhost";
       $username = "root";
       $password = "123";
@@ -20,34 +20,9 @@ class DB{
       } catch (Exception $e) {
          die("Error creating database: " . $this->connect_mysql()->error);
       }
-      $this->connect_mysql()->close();
    }
 
-   public function insert($table, $fields) {
-      $sql = "INSERT INTO ". $table . " VALUES ". $fields;
-      try {
-         $this->connect_mysql()->query($sql);
-         return $sql;
-      } catch (Exception $e) {
-         die($e);
-      }
-   }
-   public function update($table, $value , $where) {
-      $sql = "UPDATE ". $table . " SET " . $value . " WHERE ". $fields;
-      try {
-         $this->connect_mysql()->query($sql);
-         return $sql;
-      } catch (Exception $e) {
-         die($e);
-      }
-   }
-   public function get($table){
-      $sql = "SELECT * FROM ". $table;
-      try {
-        return $this->connect_mysql()->query($sql);
-      } catch (Exception $e) {
-         die($e);
-      }
-   }
+
+
 }
 ?>

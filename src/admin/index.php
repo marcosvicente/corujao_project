@@ -6,8 +6,6 @@ class IndexAdmin{
   } 
 
   public function main(){
-    $authentication = new Authentication();
-    $authentication->has_login();
     include('../pages/admin/index.php');
   }
 }

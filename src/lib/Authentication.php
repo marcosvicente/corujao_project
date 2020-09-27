@@ -1,13 +1,21 @@
 <?php 
 require('../util/DB.php');
+
+session_start();
 class Authentication
 {
+  private function get_value_user() {
+    $db = new DB();
+    $email = $_SESSION['email'];
+    $sql = "SELECT * FROM corujao.usuario where email = '". $email ."';";
+    $result = mysqli_query($db->connect_mysql(), $sql);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+  }
   public function make_login(){
-    session_start();
-    if ($_POST['password'] == '123') {
-      $_SESSION['username'] = $_POST['username'];
-      $_SESSION['password'] = $_POST['password'];
-      $_SESSION['login'] = 'login';
+    if ($_POST['senha'] == '123') {
+      $_SESSION['email'] = $_POST['email'];
+      $_SESSION['senha'] = $_POST['senha'];
+      $_SESSION['login'] = true;
       return header("location: index.php");
     }else{
       return $error = "Usuario não encontrado";
@@ -15,18 +23,19 @@ class Authentication
   }
 
   public function has_login() {
-    session_start();
-    if ($_SESSION['login'] != 'login') {
-      header("location: login.php");
-      die();
-      return true;
+    if(isset($_SESSION["login"]) && $_SESSION["login"] === true){
+      header("location: index.php");
+      exit();
     }else{
-      return false;
+      header("location: login.php");
+      exit();
+
     }
   }
   public function logout(){
     session_unset();
     session_destroy();
+    header("location: login.php");
   }
 }
 ?>
