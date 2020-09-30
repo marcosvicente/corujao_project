@@ -44,9 +44,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="pages/typography.html">
+                        <a href="../../src/admin/noticia.php">
                             <i class="material-icons">text_fields</i>
-                            <span>Typography</span>
+                            <span>Noticias</span>
                         </a>
                     </li>
                     <li>
